@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string Name;
+    public int Lv;
+    public int CurrentEXP;
+    public int MaxExp;
+    public int Gold;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
