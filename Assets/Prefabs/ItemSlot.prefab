@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconImage: {fileID: 8243510652326437732}
   countText: {fileID: 2642449870063292328}
+  outline: {fileID: 2543242020953865630}
 --- !u!1 &5638800786587512555
 GameObject:
   m_ObjectHideFlags: 0

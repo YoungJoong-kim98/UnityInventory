@@ -15,7 +15,6 @@ public class ItemData : ScriptableObject
     public Sprite icon;
     public string itemName;
     public int id;
-    public int count;
     public ItemType itemType;
 
     [Header("스탯 증가치 (장비 아이템 전용)")]

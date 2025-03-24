@@ -8,6 +8,8 @@ public class UIInventory : MonoBehaviour
     [SerializeField] private ItemSlot slotPrefab;
     [SerializeField] private Transform slotParent;
 
+
+    [SerializeField] private int maxSlotCount = 100; // ÃÑ ½½·Ô ¼ö
     private List<ItemSlot> slotList = new List<ItemSlot>();
 
     private void Start()
@@ -18,18 +20,29 @@ public class UIInventory : MonoBehaviour
         });
     }
 
-    public void InitInventoryUI(List<ItemData> items)
+    public void InitInventoryUI(List<InventoryItem> inventoryItems)
     {
+        // ±âÁ¸ ½½·Ô Á¦°Å
         foreach (Transform child in slotParent)
             Destroy(child.gameObject);
-
         slotList.Clear();
 
-        foreach (var item in items)
+        // 100°³ ½½·Ô »ý¼º
+        for (int i = 0; i < maxSlotCount; i++)
         {
             ItemSlot slot = Instantiate(slotPrefab, slotParent);
-            slot.SetSlot(item);
+
+            if (i < inventoryItems.Count)
+            {
+                slot.SetSlot(inventoryItems[i]); // ½ÇÁ¦ ¾ÆÀÌÅÛ ¼³Á¤
+            }
+            else
+            {
+                slot.SetEmpty(); // ºó ½½·ÔÀ¸·Î ¼³Á¤
+            }
+
             slotList.Add(slot);
         }
+
     }
 }

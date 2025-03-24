@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ac9e89ca8888f46ba904b1f25f4736, type: 3}
+  m_Name: Item_gloves
+  m_EditorClassIdentifier: 
+  icon: {fileID: 386765481, guid: d9dfa27dc10904c4f86da8946f65ca1a, type: 3}
+  itemName: "\uC7A5\uAC11"
+  id: 1
+  itemType: 0
+  addAttackPower: 100
+  addDefensePower: 50
+  addHealth: 0
+  addCritical: 0
