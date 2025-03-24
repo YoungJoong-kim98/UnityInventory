@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public List<ItemData> dummyItems;
     public Character Player { get; private set; }
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SetData();
+        UIManager.Instance.UIInventory.InitInventoryUI(dummyItems);
     }
 
     public void SetData()
