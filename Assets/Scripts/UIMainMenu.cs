@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class UIMainMenu : MonoBehaviour
@@ -10,6 +11,12 @@ public class UIMainMenu : MonoBehaviour
 
     [SerializeField] private Button statusButton;
     [SerializeField] private Button inventoryButton;
+
+
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI goldText;
+    [SerializeField] private TextMeshProUGUI Exp;
 
     private void Start()
     {
@@ -35,5 +42,13 @@ public class UIMainMenu : MonoBehaviour
         uiMainMenuObj.SetActive(false);
         uiStatusObj.SetActive(false);
         uiInventoryObj.SetActive(true);
+    }
+
+    public void SetData(Character player)
+    {
+        nameText.text = player.Name;
+        levelText.text = $"Lv {player.Lv}";
+        goldText.text = $"{player.Gold}";
+        Exp.text = $"{player.CurrentEXP} / {player.MaxExp}";
     }
 }

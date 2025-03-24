@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance { get; private set; }
+    public static UIManager Instance{ get; private set; } //읽기 전용으로 만듬
 
 
     [SerializeField] private UIMainMenu uiMainMenu;
