@@ -4,41 +4,22 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance;
+    public static UIManager Instance { get; private set; }
 
-    [SerializeField] private GameObject UIMainMenu;
-    [SerializeField] private GameObject UIStatus;
-    [SerializeField] private GameObject UIInventory;
+
+    [SerializeField] private UIMainMenu uiMainMenu;
+    [SerializeField] private UIStatus uiStatus;
+    [SerializeField] private UIInventory uiInventory;
+
+    public UIMainMenu UIMainMenu => uiMainMenu;
+    public UIStatus UIStatus => uiStatus;
+    public UIInventory UIInventory => uiInventory;
     private void Awake()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
-    public void OpenMainMenu() //뒤로가기 버튼
-    {
-        UIMainMenu.SetActive(true);
-        UIStatus.SetActive(false);
-        UIInventory.SetActive(false);
-    }
-
-    public void OpenStatus()
-    {
-        UIMainMenu.SetActive(false);
-        UIStatus.SetActive(true);
-    }
-
-    public void OpenInventory()
-    {
-        UIMainMenu.SetActive(false);
-        UIInventory.SetActive(true);
-    }
 
 }
+

@@ -155,11 +155,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1816398326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 658, y: 453}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -100, y: 0}
   m_SizeDelta: {x: 500, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &148550641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,6 +543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 314996147}
+  - component: {fileID: 314996148}
   m_Layer: 5
   m_Name: UIInventory
   m_TagString: Untagged
@@ -571,6 +572,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &314996148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314996146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe9c27625983b24a86c43e96e2a500a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BackButton: {fileID: 1205743605}
 --- !u!1 &331741206
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,19 +742,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 337023065}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1816398327}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OpenInventory
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &337023065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,6 +1186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 678298261}
+  - component: {fileID: 678298262}
   m_Layer: 5
   m_Name: UIMainMenu
   m_TagString: Untagged
@@ -1212,6 +1215,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &678298262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678298260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b3e77e10e7a7d46bfcf41df1a9b9ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiMainMenuObj: {fileID: 678298260}
+  uiStatusObj: {fileID: 1019097399}
+  uiInventoryObj: {fileID: 314996146}
+  statusButton: {fileID: 2015802504}
+  inventoryButton: {fileID: 337023064}
 --- !u!1 &793812733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,6 +1509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1019097400}
+  - component: {fileID: 1019097401}
   m_Layer: 5
   m_Name: UIStatus
   m_TagString: Untagged
@@ -1512,11 +1533,24 @@ RectTransform:
   - {fileID: 2020060905}
   m_Father: {fileID: 1816398326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1019097401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019097399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7084df992a4acc746951219bd6b6e352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BackButton: {fileID: 2020060906}
 --- !u!1 &1097827331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,9 +2465,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d2c97a0f0f19e40bbaa1d31fcb65c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIMainMenu: {fileID: 678298260}
-  UIStatus: {fileID: 1019097399}
-  UIInventory: {fileID: 314996146}
+  uiMainMenu: {fileID: 678298262}
+  uiStatus: {fileID: 1019097401}
+  uiInventory: {fileID: 314996148}
 --- !u!1 &2015802502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,19 +2550,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2015802505}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1816398327}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OpenStatus
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2015802505
 MonoBehaviour:
   m_ObjectHideFlags: 0
