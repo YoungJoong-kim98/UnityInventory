@@ -41,22 +41,6 @@ public class ItemSlot : MonoBehaviour
 
     private void OnClickSlot()
     {
-        if (inventoryItem == null) return;
-
-        // 장착 상태에 따라 토글
-        if (inventoryItem.isEquipped)
-        {
-            GameManager.Instance.Player.UnEquip(inventoryItem);
-        }
-        else
-        {
-            GameManager.Instance.Player.Equip(inventoryItem);
-        }
-
-        // 슬롯 UI 갱신
-        SetSlot(inventoryItem);
-
-        // 스탯 UI도 갱신
-        UIManager.Instance.UIStatus.SetData(GameManager.Instance.Player);
+        UIManager.Instance.UIInventory.OnClickItemslot(this, inventoryItem);
     }
 }

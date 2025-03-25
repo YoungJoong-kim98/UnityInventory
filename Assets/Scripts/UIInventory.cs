@@ -48,4 +48,24 @@ public class UIInventory : MonoBehaviour
 
     }
 
+    public void OnClickItemslot(ItemSlot targetslot,InventoryItem targetItem)
+    {
+        if (targetItem == null) return;
+
+        if (targetItem.isEquipped)
+        {
+            GameManager.Instance.Player.UnEquip(targetItem);
+        }
+        else
+        {
+            GameManager.Instance.Player.Equip(targetItem);
+        }
+
+        // ΩΩ∑‘ UI ∞ªΩ≈
+        targetslot.SetSlot(targetItem);
+
+        // Ω∫≈» UIµµ ∞ªΩ≈
+        UIManager.Instance.UIStatus.SetData(GameManager.Instance.Player);
+    }
+
 }
