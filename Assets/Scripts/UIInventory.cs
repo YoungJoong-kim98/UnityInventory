@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class UIInventory : MonoBehaviour
     [SerializeField] private Button backButton;
     [SerializeField] private ItemSlot slotPrefab;
     [SerializeField] private Transform slotParent;
-
+    [SerializeField] private TextMeshProUGUI InventoryCount;
 
     [SerializeField] private int maxSlotCount = 100; // ÃÑ ½½·Ô ¼ö
     private List<ItemSlot> slotList = new List<ItemSlot>();
@@ -22,27 +23,29 @@ public class UIInventory : MonoBehaviour
 
     public void InitInventoryUI(List<InventoryItem> inventoryItems)
     {
-        // ±âÁ¸ ½½·Ô Á¦°Å
-        foreach (Transform child in slotParent)
-            Destroy(child.gameObject);
-        slotList.Clear();
-
-        // 100°³ ½½·Ô »ý¼º
-        for (int i = 0; i < maxSlotCount; i++)
+        // Ã³À½¿¡ 100°³ »ý¼ºÇØ µÒ
+        if (slotList.Count == 0)
         {
-            ItemSlot slot = Instantiate(slotPrefab, slotParent);
+            for (int i = 0; i < maxSlotCount; i++)
+            {
+                ItemSlot slot = Instantiate(slotPrefab, slotParent);
+                slotList.Add(slot);
+            }
+        }
 
+        for (int i = 0; i < slotList.Count; i++)
+        {
             if (i < inventoryItems.Count)
             {
-                slot.SetSlot(inventoryItems[i]); // ½ÇÁ¦ ¾ÆÀÌÅÛ ¼³Á¤
+                slotList[i].SetSlot(inventoryItems[i]); //½ÇÁ¦ ¾ÆÀÌÅÛ »ý¼º
             }
             else
             {
-                slot.SetEmpty(); // ºó ½½·ÔÀ¸·Î ¼³Á¤
+                slotList[i].SetEmpty(); // ºó½½·Ô
             }
-
-            slotList.Add(slot);
         }
+        InventoryCount.text = $"Inventory <color=#FF0000>{inventoryItems.Count}</color> / {maxSlotCount}";
 
     }
+
 }

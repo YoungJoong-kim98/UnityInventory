@@ -17,9 +17,11 @@ public class ItemSlot : MonoBehaviour
         inventoryItem = invItem;
 
         iconImage.sprite = invItem.itemData.icon;
-        countText.text = invItem.count > 1 ? invItem.count.ToString() : "";
+        countText.text = invItem.count > 1 ? invItem.count.ToString():
+                         invItem.isEquipped ? "E"  :
+                         "";
 
-        // 장착 상태에 따라 테두리 강조
+        // 장착 테두리
         outline.enabled = invItem.isEquipped;
     }
 
@@ -30,5 +32,31 @@ public class ItemSlot : MonoBehaviour
         iconImage.enabled = false;
         countText.text = "";
         outline.enabled = false;
+    }
+
+    public void Start()
+    {
+        GetComponent<Button>().onClick.AddListener(OnClickSlot);
+    }
+
+    private void OnClickSlot()
+    {
+        if (inventoryItem == null) return;
+
+        // 장착 상태에 따라 토글
+        if (inventoryItem.isEquipped)
+        {
+            GameManager.Instance.Player.UnEquip(inventoryItem);
+        }
+        else
+        {
+            GameManager.Instance.Player.Equip(inventoryItem);
+        }
+
+        // 슬롯 UI 갱신
+        SetSlot(inventoryItem);
+
+        // 스탯 UI도 갱신
+        UIManager.Instance.UIStatus.SetData(GameManager.Instance.Player);
     }
 }
