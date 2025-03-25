@@ -23,28 +23,28 @@ public class UIMainMenu : MonoBehaviour
         statusButton.onClick.AddListener(() => OpenStatus());
         inventoryButton.onClick.AddListener(() => OpenInventory());
     }
-    public void OpenMainMenu()
+    public void OpenMainMenu() //메인화면
     {
         uiMainMenuObj.SetActive(true);
         uiStatusObj.SetActive(false);
         uiInventoryObj.SetActive(false);
     }
 
-    public void OpenStatus()
+    public void OpenStatus() //캐릭터 상태화면
     {
         uiMainMenuObj.SetActive(false);
         uiStatusObj.SetActive(true);
         uiInventoryObj.SetActive(false);
     }
 
-    public void OpenInventory()
+    public void OpenInventory() // 인벤토리 화면
     {
         uiMainMenuObj.SetActive(false);
         uiStatusObj.SetActive(false);
         uiInventoryObj.SetActive(true);
     }
 
-    public void SetData(Character player)
+    public void SetData(Character player) //캐릭터 데이터 설정
     {
         nameText.text = player.Name;
         levelText.text = $"Lv {player.Lv}";

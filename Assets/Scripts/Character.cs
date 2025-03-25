@@ -28,12 +28,12 @@ public class Character
         Critical = critical;
     }
 
-    public void AddItem(InventoryItem item)
+    public void AddItem(InventoryItem item) //인벤토리 리스트에 아이템 추가
     {
         Inventory.Add(item);
     }
 
-    public void Equip(InventoryItem item)
+    public void Equip(InventoryItem item) //무기 장착
     {
         if (item.isEquipped || item.itemData.itemType != ItemType.Equipable) return;
 
@@ -45,7 +45,7 @@ public class Character
         item.isEquipped = true;
     }
 
-    public void UnEquip(InventoryItem item)
+    public void UnEquip(InventoryItem item) //장착 해제
     {
         if (!item.isEquipped) return;
 

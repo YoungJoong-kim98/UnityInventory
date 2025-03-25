@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public List<ItemData> dummyItems;
+    public List<ItemData> dummyItems; //예시용 아이템
     public Character Player { get; private set; }
 
     //private List<InventoryItem> inventoryItems = new List<InventoryItem>();
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UIInventory.InitInventoryUI(Player.Inventory);
     }
 
-    public void SetData()
+    public void SetData() // Player데이터 UI 반영
     {
         UIManager.Instance.UIMainMenu.SetData(Player);
         UIManager.Instance.UIStatus.SetData(Player);

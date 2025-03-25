@@ -17,7 +17,7 @@ public class UIStatus : MonoBehaviour
         BackButton.onClick.AddListener(() => UIManager.Instance.UIMainMenu.OpenMainMenu());
     }
 
-    public void SetData(Character player)
+    public void SetData(Character player) // 캐릭터 상태 설정
     {
         attackText.text = $"공격력\n{player.AttackPower.ToString()}";
         defenseText.text = $"방어력\n{player.DefensePower.ToString()}";
